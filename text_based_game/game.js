@@ -50,17 +50,23 @@ class Player extends Characters {
         }
     }
     look(){
-        console.log(world[this.currentRoom].description);
-        if(world[this.currentRoom].doors.length != 0){
-            console.log('\nThere are doors leading to: ');
-            for(let i = 0; i < world[this.currentRoom].doors.length; i++){
-                console.log(world[this.currentRoom].doors[i].name)
+        console.log('\nYou look around ' + world[player.currentRoom].name);
+        console.log(world[player.currentRoom].description);
+        console.log('============');
+        if(world[player.currentRoom].doors.length != 0) {
+            console.log('\nYou see these doors: ');
+            for(let i = 0; i < world[player.currentRoom].doors.length; i++){
+                console.log(world[player.currentRoom].doors[i].name)
             }
         }
-        if(world[this.currentRoom].creatures.length != 0){
-            console.log('\nYou see following creatures:');
-            for(let i = 0; i < world[this.currentRoom].creatures.length; i++){
-                console.log(world[this.currentRoom].creatures[i].name)
+        if(world[player.currentRoom].creatures.length != 0) {
+            console.log('You see these monsters: ')
+            for(let i = 0; i < world[player.currentRoom].creatures.length; i++){
+                console.log(world[player.currentRoom].creatures[i].name)
+            }
+            console.log('=============')
+            for(let i = 0; i < world[player.currentRoom].creatures.length; i++){
+                world[player.currentRoom].creatures[i].attack(player)
             }
         }
     }
@@ -138,24 +144,7 @@ async function gameLoop() {
 
     switch(response.value){
       case 'look':
-        console.log('\nYou look around ' + world[player.currentRoom].name);
-        console.log(world[player.currentRoom].description);
-        if(world[player.currentRoom].doors.length != 0) {
-            console.log('\nYou see these doors: ');
-            for(let i = 0; i < world[player.currentRoom].doors.length; i++){
-                console.log(world[player.currentRoom].doors[i].name)
-            }
-        }
-        if(world[player.currentRoom].creatures.length != 0) {
-            console.log('You see these monsters: ')
-            for(let i = 0; i < world[player.currentRoom].creatures.length; i++){
-                console.log(world[player.currentRoom].creatures[i].name)
-            }
-            console.log('=============')
-            for(let i = 0; i < world[player.currentRoom].creatures.length; i++){
-                world[player.currentRoom].creatures[i].attack(player)
-            }
-        }
+        player.look();
         break;
       case 'goToRoom':
         const roomChoices = [];
