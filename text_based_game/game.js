@@ -110,10 +110,10 @@ chamber.addDoor(portal);
 
 let player = new Player(10, 75, 2, 'Player');
 
-let rat = new Monsters( 2, 50, 1, 'Rat' );
-let voldemort = new Monsters( 4, 90, 8, 'Voldemort' );
-hallway.addMonsters(rat);
-chamber.addMonsters(voldemort);
+let anxiety = new Monsters( 2, 50, 1, 'Anxiety' );
+let depression = new Monsters( 4, 90, 8, 'Depression' );
+hallway.addMonsters(anxiety);
+chamber.addMonsters(depression);
 
 let world = [entrance, hallway, chamber, portal];
 let gameRunning = true;
