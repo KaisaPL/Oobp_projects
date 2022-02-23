@@ -202,6 +202,7 @@ async function gameLoop() {
             if(monsterResponse.value == monsterChoices[i].value){
                 console.log('You attack ' +monsterChoices[i].value)
                 player.attack(monsterChoices[i].monster)
+                monsterChoices[i].monster.attack(player);
                 break;
             }
         }
