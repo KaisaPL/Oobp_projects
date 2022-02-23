@@ -54,7 +54,7 @@ class Player extends Characters {
         console.log(world[player.currentRoom].description);
         console.log('============');
         if(world[player.currentRoom].doors.length != 0) {
-            console.log('\nYou see these doors: ');
+            console.log('You see these doors: ');
             for(let i = 0; i < world[player.currentRoom].doors.length; i++){
                 console.log(world[player.currentRoom].doors[i].name)
             }
@@ -64,7 +64,7 @@ class Player extends Characters {
             for(let i = 0; i < world[player.currentRoom].creatures.length; i++){
                 console.log(world[player.currentRoom].creatures[i].name)
             }
-            console.log('=============')
+            console.log('=============\n')
             for(let i = 0; i < world[player.currentRoom].creatures.length; i++){
                 world[player.currentRoom].creatures[i].attack(player)
             }
