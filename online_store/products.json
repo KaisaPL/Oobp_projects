@@ -1,5 +1,62 @@
 [
     {
-    
+        "name": "Product1",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product2",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product3",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product4",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product5",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product6",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product7",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product8",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product9",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product10",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
     }
 ]
