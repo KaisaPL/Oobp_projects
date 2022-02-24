@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+    
     <style>
-        .content {
+        #content {
             display: grid;
             grid-template-columns: 300px 300px 300px;
-            grid-template-rows: 100px 100px 100px 100px;
-            justify-content: space-evenly;
+            grid-template-rows: 300px 300px 300px 300px;
+            justify-content: space-around;
             align-items: center;
             border: 1px solid black;
             margin: 10px;
+        }
+        .content div{
+            margin: 10px;
+            border: 1px solid black;
         }
         header{
             display: flex;
@@ -17,22 +22,87 @@
             align-items: center;
             height: 20vh;
             font-size: 40px;
+            background-color: #DAB4F0;
         }
     </style>
 </head>
 <body>
     <header>Store</header>
-    <div class="content">
-        <div class="x">X</div>
-        <div class="y">Y</div>
-        <div class="z">Z</div>
-        <div class="r">R</div>
-        <div class="t">T</div>
-        <div class="o">O</div>
-        <div class="i">I</div>
-        <div class="d">D</div>
-        <div class="v">V</div>
-        <div class="n">N</div>
+    <div id="content">
     </div>
+
+    <script>
+        const products = [
+    {
+        "name": "Product1",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product2",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product3",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product4",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product5",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product6",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product7",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product8",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product9",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    },
+    {
+        "name": "Product10",
+        "id": "1",
+        "price": "200€",
+        "description": "Description of the product"
+    }
+    ]
+        for(let i = 0; i < products.length; i++){
+            let newUserElement = document.createElement('div');
+            newUserElement.className = "info";
+            newUserElement.textContent = products[i].name+ "\n " +products[i].price;
+            content.appendChild(newUserElement);
+
+        }
+        
+
+    </script>
 </body>
 </html>
