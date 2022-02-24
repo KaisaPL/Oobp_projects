@@ -156,14 +156,14 @@ async function gameLoop() {
             })
         }
     
-        const response = await prompts({
+        const roomResponse = await prompts({
           type: 'select',
           name: 'value',
           message: 'Choose your action',
           choices: roomChoices
         });
-        for(let i = 0; roomChoices.length; i++){
-            if(response.value == roomChoices[i].value){
+        for(let i = 0; i < roomChoices.length; i++){
+            if(roomResponse.value == roomChoices[i].value){
                 console.log('You moved to ' +roomChoices[i].value+ '\n')
                 player.move(roomChoices[i].room)
                 break;
@@ -196,8 +196,6 @@ async function gameLoop() {
             }
         }
         break;
-      default:
-        process.exit();
     }
     if(gameRunning){
     gameLoop();
