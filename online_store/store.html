@@ -34,7 +34,7 @@
     </style>
 </head>
 <body onload="start()">
-    <header>Store</header>
+    <header id="title">Store</header>
     <div id="content"></div>
 
     <script>
@@ -148,8 +148,23 @@
                     <button>Go to cart</button>
                 `;
                 detailedView.appendChild(singleProduct)
+                
             }
         }
+        let goBack = document.getElementById("title");
+        goBack.innerHTML = "";
+        let backButton = document.createElement("header")
+        backButton.innerHTML = `
+            <header>Store
+            <button onclick="back()">Back</button>
+            </header>
+            `
+        title.appendChild(backButton)   
+        
+    }
+    function back() {
+        
+
     }
 
 
