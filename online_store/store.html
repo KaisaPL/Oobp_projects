@@ -138,6 +138,7 @@
                 let singleProduct = document.createElement("div")
                 singleProduct.className = "detail"
                 singleProduct.innerHTML = `
+                    <button onclick="start()">Back</button>
                     <div>
                         <h2>${products[i].name}</h2>
                         <img src="${products[i].image}"/>
@@ -150,16 +151,7 @@
                 detailedView.appendChild(singleProduct)
                 
             }
-        }
-        let goBack = document.getElementById("title");
-        goBack.innerHTML = "";
-        let backButton = document.createElement("header")
-        backButton.innerHTML = `
-            <header>Store
-            <button onclick="back()">Back</button>
-            </header>
-            `
-        title.appendChild(backButton)   
+        }   
         
     }
     function back() {
