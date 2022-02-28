@@ -112,10 +112,12 @@
     ]
 
     function start(){
+        
         let frontPage = document.getElementById("content");
         frontPage.innerHTML = "";
 
         for(let i = 0; i < products.length; i++) {
+            
             let allProducts = document.createElement("div"); 
             allProducts.className = "product";
             allProducts.innerHTML = `
@@ -126,8 +128,10 @@
                 </div>
             `
             allProducts.onclick = () => detailView(products[i]);
-            frontPage.appendChild(allProducts);
+            frontPage.appendChild(allProducts);  
         }
+        
+    
     }
     function detailView(product){
         let detailedView = document.getElementById("content")
@@ -145,8 +149,8 @@
                         <p>${products[i].description}</p>
                         <div>${products[i].price}</div>
                     </div>
-                    <button>Add to cart</button>
-                    <button>Go to cart</button>
+                    <button onclick="addToCart()">Add to cart</button>
+                    <button onclick="shoppingCart()">Go to cart</button>
                 `;
                 detailedView.appendChild(singleProduct)
                 
@@ -154,9 +158,25 @@
         }   
         
     }
-    function back() {
-        
+    function shoppingCart() {
+        let shoppingCartView = document.getElementById("content");
+        shoppingCartView.innerHTML = "";
 
+        let cartContent = [document.createElement("div")];
+        cartContent.className = "productsInCart"
+        cartContent.innerHTML = `
+            <div></div>
+            <button>Remove</button>
+        `
+        shoppingCartView.appendChild(cartContent)
+    }
+    function addToCart(product) {
+        for(let i = 0; i < products.length; i++) {
+            if(products[i] == product) {
+                cartContent.push(products[i]);
+            }
+
+        }
     }
 
 
