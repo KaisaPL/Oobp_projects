@@ -1,195 +1,38 @@
+<!-- Second try with separate javascript but not working -->
+
 <!DOCTYPE html>
 <html>
 <head>
     
     <style>
-        #content {
-            display: grid;
-            grid-template-columns: 300px 300px 300px;
-            grid-template-rows: 300px 300px 300px 300px;
-            justify-content: space-around;
-            align-items: center;
-            border: 1px solid black;
-            margin: 10px;
-        }
-        .info {
-            /* display: grid;
-            grid-template-columns: 100%; */
-            grid-template-rows: 30% 1vh 30%;
-            border: 1px solid black;
-
-        }
-        header{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 20vh;
-            font-size: 40px;
-            background-color: #DAB4F0;
-        }
-        img{
-            width: 100px;
-            height: 100px;
-        }
+    
     </style>
 </head>
-<body onload="start()">
-    <header id="title">Store</header>
-    <div id="content"></div>
+<body>
+    <div id="shoppingCart">
+        <div class="cartContent">
+            <div id="cartItems"></div>
+            <div class="footer">
+                <button id="purchase" onclick="pageReload()">Buy</button>
+                <span class="totalPrice"></span>
+            </div>
+        </div> 
+    </div>
+    <header>
+        <span onclick="allProductsInGrid()">My store</span>
+            <span class="cartCounter"></span>
+        </div>
+    </header>
+    <div id="mainPage">
+        
+    </div>
+    
 
     <script>
-        const products = [
-    {
-        name: "Product1",
-        id: "1",
-        price: "200€",
-        description: "Description of the product",
-        image: "https://cdn.pixabay.com/photo/2013/10/25/20/46/mosaic-200864_960_720.jpg"
-    },
-    {
-        name: "Product2",
-        id: "1",
-        price: "200€",
-        description: "Description of the product",
-        image: "https://cdn.pixabay.com/photo/2017/12/28/16/18/bicycle-3045580_960_720.jpg"
-    },
-    {
-        name: "Product3",
-        id: "1",
-        price: "200€",
-        description: "Description of the product",
-        image: "https://cdn.pixabay.com/photo/2018/03/24/08/56/colorful-3256055_960_720.jpg"
-    },
-    {
-        name: "Product4",
-        id: "1",
-        price: "200€",
-        description: "Description of the product",
-        image: "https://cdn.pixabay.com/photo/2017/03/12/13/41/colorful-2137080_960_720.jpg"
-    },
-    {
-        name: "Product5",
-        id: "1",
-        price: "200€",
-        description: "Description of the product",
-        image: "https://cdn.pixabay.com/photo/2019/04/26/17/47/color-4158152_960_720.jpg"
-    },
-    {
-        name: "Product6",
-        id: "1",
-        price: "200€",
-        description: "Description of the product",
-        image: "https://cdn.pixabay.com/photo/2021/02/24/20/53/abstract-6047465_960_720.jpg"
-    },
-    {
-        name: "Product7",
-        id: "1",
-        price: "200€",
-        description: "Description of the product",
-        image: "https://cdn.pixabay.com/photo/2021/01/29/08/09/doodles-5960094_960_720.jpg"
-    },
-    {
-        name: "Product8",
-        id: "1",
-        price: "200€",
-        description: "Description of the product",
-        image: "https://cdn.pixabay.com/photo/2014/01/05/01/19/dragon-238931_960_720.jpg"
-    },
-    {
-        name: "Product9",
-        id: "1",
-        price: "200€",
-        description: "Description of the product",
-        image: "https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_960_720.jpg"
-    },
-    {
-        name: "Product10",
-        id: "1",
-        price: "200€",
-        description: "Description of the product",
-        image: "https://cdn.pixabay.com/photo/2016/12/15/20/21/texture-1909992_960_720.jpg"
-    }
-    ]
-
-    function start(){
-        
-        let frontPage = document.getElementById("content");
-        frontPage.innerHTML = "";
-
-        for(let i = 0; i < products.length; i++) {
-            
-            let allProducts = document.createElement("div"); 
-            allProducts.className = "product";
-            allProducts.innerHTML = `
-                <div>
-                    <h1>${products[i].name}</h1>
-                    <img src="${products[i].image}"/>
-                    <div>${products[i].price}</div>
-                </div>
-            `
-            allProducts.onclick = () => detailView(products[i]);
-            frontPage.appendChild(allProducts);  
-        }
-        
-    
-    }
-    function detailView(product){
-        let detailedView = document.getElementById("content")
-        detailedView.innerHTML = "";
-
-        for(let i = 0; i < products.length; i++) {
-            if(products[i] == product){
-                let singleProduct = document.createElement("div")
-                singleProduct.className = "detail"
-                singleProduct.innerHTML = `
-                    <button onclick="start()">Back</button>
-                    <div>
-                        <h2>${products[i].name}</h2>
-                        <img src="${products[i].image}"/>
-                        <p>${products[i].description}</p>
-                        <div>${products[i].price}</div>
-                    </div>
-                    <button onclick="addToCart()">Add to cart</button>
-                    <button onclick="shoppingCart()">Go to cart</button>
-                `;
-                detailedView.appendChild(singleProduct)
-                
-            }
-        }   
-        
-    }
-    function shoppingCart(product) {
-        let shoppingCartView = document.getElementById("content");
-        shoppingCartView.innerHTML = "";
-
-        for(let i = 0; i < products.length; i++) {
-            if(products[i] == product) {
-               let cartContent = document.createElement("div");
-                cartContent.className = "productsInCart"
-                cartContent.innerHTML = `
-                    <div>
-                        <h1>${products[i].name}</h1>
-                    </div>
-            
-                ` 
-                shoppingCartView.appendChild(cartContent)  
-            }
-           
-        }
-
-        
-    }
-    function addToCart(product) {
-        for(let i = 0; i < products.length; i++) {
-            if(products[i] == product) {
-                cartContent.push(products[i]);
-
-            }
-
-        }
-    }
-
-
+        window.onload = allProductsInGrid()
+        window.onload = cartUpdate()
+        /* window.onload = createCartView() */
     </script>
+
 </body>
 </html>
