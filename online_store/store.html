@@ -158,22 +158,32 @@
         }   
         
     }
-    function shoppingCart() {
+    function shoppingCart(product) {
         let shoppingCartView = document.getElementById("content");
         shoppingCartView.innerHTML = "";
 
-        let cartContent = [document.createElement("div")];
-        cartContent.className = "productsInCart"
-        cartContent.innerHTML = `
-            <div></div>
-            <button>Remove</button>
-        `
-        shoppingCartView.appendChild(cartContent)
+        for(let i = 0; i < products.length; i++) {
+            if(products[i] == product) {
+               let cartContent = document.createElement("div");
+                cartContent.className = "productsInCart"
+                cartContent.innerHTML = `
+                    <div>
+                        <h1>${products[i].name}</h1>
+                    </div>
+            
+                ` 
+                shoppingCartView.appendChild(cartContent)  
+            }
+           
+        }
+
+        
     }
     function addToCart(product) {
         for(let i = 0; i < products.length; i++) {
             if(products[i] == product) {
                 cartContent.push(products[i]);
+
             }
 
         }
